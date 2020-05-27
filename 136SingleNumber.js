@@ -6,6 +6,8 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 
 链接：https://leetcode-cn.com/problems/single-number */
 
+// tips: n ^ n = 0; n ^ 0 = n
+
 const singleNumber = (nums) => {
   return nums.reduce((r, n) => {
     return r ^ n;
