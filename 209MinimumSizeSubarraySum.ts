@@ -11,14 +11,18 @@ Explanation: the subarray [4,3] has the minimal length under the problem constra
  */
 
 function minSubArrayLen(s: number, nums: number[]): number {
-  let l = 0, r = 0, sum = 0, minLen = Infinity, numLen = nums.length
-  while(r < numLen) {
-    sum = sum + nums[r]
-    while(sum >= s) {
-      minLen = Math.min(minLen, r - l + 1)
-      sum = sum - nums[l++]
+  let l = 0,
+    r = 0,
+    sum = 0,
+    minLen = Infinity,
+    numLen = nums.length;
+  while (r < numLen) {
+    sum = sum + nums[r];
+    while (sum >= s) {
+      minLen = Math.min(minLen, r - l + 1);
+      sum = sum - nums[l++];
     }
-    r++
+    r++;
   }
-  return minLen === Infinity ? 0 : minLen
-};
+  return minLen === Infinity ? 0 : minLen;
+}
