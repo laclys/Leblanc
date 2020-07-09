@@ -29,19 +29,19 @@ Explanation: Move the stone from 1 to 4; or move the stone from 1 to 2 to 4.
 
  */
 
-const numMovesStones = (a: number, b: number, c: number): number[] {
-  let total = a + b + c
-  let aa = Math.min(a, b, c)
-  let cc = Math.max(a, b, c)
-  let bb = total - aa - cc
-  let l = bb - aa - 1
-  let r = cc - bb - 1
-  let max = l + r
-  let min = 0
-  if(l === 0 && r > 1 || r === 0 && l > 1 || r === 1 || l === 1){
-    min = 1
-  } else if(l > 1 && r > 1){
-    min = 2
+const numMovesStones = (a: number, b: number, c: number): number[] => {
+  let total = a + b + c;
+  let aa = Math.min(a, b, c);
+  let cc = Math.max(a, b, c);
+  let bb = total - aa - cc;
+  let l = bb - aa - 1;
+  let r = cc - bb - 1;
+  let max = l + r;
+  let min = 0;
+  if ((l === 0 && r > 1) || (r === 0 && l > 1) || r === 1 || l === 1) {
+    min = 1;
+  } else if (l > 1 && r > 1) {
+    min = 2;
   }
-  return [min, max]
+  return [min, max];
 };
