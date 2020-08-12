@@ -27,11 +27,12 @@ Explanation: There are three ways to climb to the top.
  */
 
 function climbStairs(n: number): number {
-  let dp: number[] = new Array(n + 1).fill(0);
-  dp[0] = 1;
-  dp[1] = 1;
+  let p = 1
+  let c = 1
   for (let i = 2; i <= n; i++) {
-    dp[i] = dp[i - 1] + dp[i - 2];
+    let t = c
+    c = c + p
+    p = t
   }
-  return dp[n];
+  return c;
 }

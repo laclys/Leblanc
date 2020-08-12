@@ -27,13 +27,11 @@ const rob = (nums: number[]): number => {
   if (len === 1) return nums[0]
   let prev = nums[0]
   let cur = Math.max(nums[0], nums[1])
-  let res = cur
 
   for (let i = 2; i < nums.length; i++) {
     let temp = cur
     cur = Math.max(cur, nums[i] + prev)
     prev = temp
-    res = Math.max(cur, res)
   }
-  return res
+  return cur
 };
