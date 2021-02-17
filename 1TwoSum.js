@@ -8,7 +8,7 @@ const twoSum = function(nums, target) {
   let obj = {}
   let ret = []
   for (let i = 0; i < nums.length; i++) {
-      if (obj[nums[i]] === undefined) {
+      if (obj[nums[i]] === undefined) { // !obj[nums[i]]这个没有考虑0的情况！！！
           obj[target-nums[i]] = nums[i]
       } else {
         return [i, nums.indexOf(obj[nums[i]])].sort()
