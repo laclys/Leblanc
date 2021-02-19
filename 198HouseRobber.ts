@@ -29,7 +29,7 @@ const rob = (nums: number[]): number => {
   let cur = Math.max(nums[0], nums[1])
 
   for (let i = 2; i < nums.length; i++) {
-    let temp = cur
+    let temp = 
     cur = Math.max(cur, nums[i] + prev)
     prev = temp
   }
