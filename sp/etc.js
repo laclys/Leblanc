@@ -18,7 +18,14 @@ Function.prototype.myApply = (context, args) => {
   delete context[symbol]
 }
 
-
+Function.prototype.myBind = (context, ...args) => {
+  context = context || window
+  const self = this
+  return function () {
+    const argsTemp = args.concat(arguments)
+    return self.apply(context, argsTemp)
+  }
+}
 
 function _new() {
   let obj = {}
@@ -68,5 +75,3 @@ function debounce(fn, wait) {
     }, wait)
   }
 }
-
-

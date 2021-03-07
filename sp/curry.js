@@ -27,3 +27,16 @@ function curry (fn, currArgs) {
 // fn(1, 2)(3); // 6
 // fn(1)(2, 3); // 6
 // fn(1)(2)(3); 
+
+
+function curry (fn, curArgs) {
+    return function (...args) {
+        if (curArgs !== undefined) {
+            args = args.concat(curArgs)
+        }
+        if (args.length < fn.length) {
+            return curry(fn, args)
+        }
+        return fn(...args)
+    }
+}
