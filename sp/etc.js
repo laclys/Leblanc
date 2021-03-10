@@ -20,10 +20,12 @@ Function.prototype.myApply = (context, args) => {
 
 Function.prototype.myBind = (context, ...args) => {
   context = context || window
-  const self = this
-  return function () {
-    const argsTemp = args.concat(arguments)
-    return self.apply(context, argsTemp)
+  const symbol = Symbol('fn')
+  context[symbol] = this
+  return function (..._args) {
+    args = args.concat(_args)
+    context[symbol](...args)
+    delete context[symbol]
   }
 }
 
