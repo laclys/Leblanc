@@ -5,7 +5,7 @@ const flatArr2 = (arr) => {
   const ret = []
   const stack = [].concat(arr)
   while(stack.length !== 0) {
-    const tmp = stack.pop()
+    const temp = stack.pop()
     if (Array.isArray(temp)) {
       stack.push(...temp)
     } else {
